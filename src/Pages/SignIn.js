@@ -56,7 +56,7 @@ const Login = () => {
     navigate("/forgot");
   };
   const handleSignUpClick = () => {
-    navigate("/"); // Redirect to sign-up page
+    navigate("/register"); // Redirect to sign-up page
   };
 
   return (
@@ -131,7 +131,11 @@ const Login = () => {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="/" variant="body2" onClick={handleSignUpClick}>
+                  <Link
+                    href="/register"
+                    variant="body2"
+                    onClick={handleSignUpClick}
+                  >
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
