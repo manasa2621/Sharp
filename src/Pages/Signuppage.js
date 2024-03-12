@@ -84,7 +84,7 @@ const Registration = () => {
                   autoComplete="given-name"
                   required
                   type="text"
-                  name="id"
+                  name="emp_id"
                   variant="outlined"
                   fullWidth
                   value={formData.id}
