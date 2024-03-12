@@ -15,7 +15,7 @@ import * as React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+ 
 const Registration = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -24,26 +24,24 @@ const Registration = () => {
     email: "",
     password: "",
   });
-
+ 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+ 
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/register`,
         formData
       );
-
-      if (response && response.data && response.data.token) {
-        const { token } = response.data;
-        localStorage.setItem("jwt", token);
+ 
+      if (response && response.data) {
         console.log(response.data.message);
         navigate("/login");
       } else {
@@ -53,7 +51,7 @@ const Registration = () => {
       console.error(error.response?.data?.message || "An error occurred");
     }
   };
-
+ 
   return (
     <ThemeProvider theme={createTheme()}>
       <CssBaseline />
@@ -87,7 +85,7 @@ const Registration = () => {
                   name="emp_id"
                   variant="outlined"
                   fullWidth
-                  value={formData.id}
+                  value={formData.emp_id}
                   onChange={handleChange}
                   label="Employee Id"
                 />
